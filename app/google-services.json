@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1040722153217",
+    "project_id": "panchi-bf16c",
+    "storage_bucket": "panchi-bf16c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040722153217:android:95b6ceb79fcf702823d500",
+        "android_client_info": {
+          "package_name": "com.example.panchi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040722153217-3v4flvsj76npv2jheshl7fkr6mb5vr6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD336-tV683zaaIYj46t2w1x2PYDdakqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040722153217-3v4flvsj76npv2jheshl7fkr6mb5vr6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
