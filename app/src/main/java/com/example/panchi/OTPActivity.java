@@ -2,7 +2,6 @@ package com.example.panchi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -25,6 +24,7 @@ public class OTPActivity extends AppCompatActivity {
 
     ActivityOtpactivityBinding binding;
 
+
     FirebaseAuth auth;
 
     String vId;
@@ -40,16 +40,17 @@ public class OTPActivity extends AppCompatActivity {
 
         String phoneNumber=getIntent().getStringExtra("phoneNumber");
         binding.NumLabel.setText("Verify "+phoneNumber);
+
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth).setPhoneNumber(phoneNumber)
                 .setTimeout(60L, TimeUnit.SECONDS).setActivity(OTPActivity.this)
                 .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
-                    public void onVerificationCompleted(@NonNull  PhoneAuthCredential phoneAuthCredential) {
+                    public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
 
                     }
 
                     @Override
-                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                    public void onVerificationFailed(FirebaseException e) {
 
                     }
 
@@ -69,7 +70,7 @@ public class OTPActivity extends AppCompatActivity {
 
                 auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                    public void onComplete(@NonNull  Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(OTPActivity.this, "Logged In",Toast.LENGTH_SHORT).show();
                         }

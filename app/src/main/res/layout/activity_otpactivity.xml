@@ -59,12 +59,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
                 android:inputType="number"
-                android:itemBackground="@color/white"
+                android:itemBackground="@color/gray"
+                android:phoneNumber="false"
                 android:textColor="@android:color/black"
                 app:OtpItemCount="6"
-                app:OtpLineColor="@color/black"
-                app:OtpViewType="line"
-                />
+                app:OtpLineColor="@color/green"
+                app:OtpViewType="line" />
 
 
 

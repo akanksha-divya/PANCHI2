@@ -58,6 +58,7 @@
                 android:layout_height="60dp"
                 android:editable="true"
                 android:hint="Phone Number"
+                android:phoneNumber="false"
                 android:textSize="24sp" />
 
             <Button

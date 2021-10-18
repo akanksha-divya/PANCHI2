@@ -22,6 +22,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         binding.phoneNo.requestFocus();
 
+
         binding.Continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
