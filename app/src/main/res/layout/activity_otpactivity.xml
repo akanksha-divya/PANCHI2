@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
-                android:inputType="number"
+                android:inputType="phone"
                 android:itemBackground="@color/gray"
                 android:phoneNumber="false"
                 android:textColor="@android:color/black"
