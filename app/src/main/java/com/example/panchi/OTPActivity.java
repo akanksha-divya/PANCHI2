@@ -33,8 +33,6 @@ public class OTPActivity extends AppCompatActivity {
     ProgressDialog dialog,d2;
     FirebaseAuth auth;
 
-
-
     String vId;
 
     @Override
