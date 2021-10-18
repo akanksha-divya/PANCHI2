@@ -2,7 +2,12 @@ package com.example.panchi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.panchi.databinding.ActivityOtpactivityBinding;
@@ -24,8 +29,11 @@ public class OTPActivity extends AppCompatActivity {
 
     ActivityOtpactivityBinding binding;
 
-
+    //To show loading while the otp is being sent
+    ProgressDialog dialog,d2;
     FirebaseAuth auth;
+
+
 
     String vId;
 
@@ -33,13 +41,19 @@ public class OTPActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityOtpactivityBinding.inflate(getLayoutInflater());
-
         setContentView(binding.getRoot());
 
-        auth= FirebaseAuth.getInstance();
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Sending OTP.....");
+        dialog.setCancelable(false);
+        dialog.show();
 
-        String phoneNumber=getIntent().getStringExtra("phoneNumber");
-        binding.NumLabel.setText("Verify "+phoneNumber);
+        d2 = new ProgressDialog(this);
+
+        auth = FirebaseAuth.getInstance();
+
+        String phoneNumber = getIntent().getStringExtra("phoneNumber");
+        binding.NumLabel.setText("Verify " + phoneNumber);
 
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth).setPhoneNumber(phoneNumber)
                 .setTimeout(60L, TimeUnit.SECONDS).setActivity(OTPActivity.this)
@@ -57,33 +71,59 @@ public class OTPActivity extends AppCompatActivity {
                     @Override
                     public void onCodeSent(@NonNull @NotNull String verifyId, @NonNull @NotNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         super.onCodeSent(verifyId, forceResendingToken);
-                        vId=verifyId;
+                        dialog.dismiss();
+                        vId = verifyId;
                     }
                 }).build();
 
         PhoneAuthProvider.verifyPhoneNumber(options);
 
+
+
         binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
             public void onOtpCompleted(String otp) {
+
+                d2.setMessage("Verifying OTP...");
+                d2.setCancelable(false);
+                d2.show();
+
                 PhoneAuthCredential credential = PhoneAuthProvider.getCredential(vId,otp);
 
                 auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull  Task<AuthResult> task) {
+
+
+
                         if(task.isSuccessful()){
-                            Toast.makeText(OTPActivity.this, "Logged In",Toast.LENGTH_SHORT).show();
+
+                            //Toast.makeText(OTPActivity.this, "Logged In",Toast.LENGTH_SHORT).show();
+
+                            Intent intent= new Intent(OTPActivity.this,ProfileActivity.class);
+                            startActivity(intent);
+                           // finishAffinity();
                         }
                         else
                         {
+
                             Toast.makeText(OTPActivity.this, "Failed",Toast.LENGTH_SHORT).show();
                         }
+                        d2.dismiss();
+                        finishAffinity();
                     }
                 });
+
             }
         });
 
-
+        //for continue button
+        binding.ContinueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(OTPActivity.this, "Enter Correct OTP",Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

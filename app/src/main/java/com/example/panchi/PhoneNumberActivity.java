@@ -30,6 +30,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
 
                 intent.putExtra("phoneNumber",binding.phoneNo.getText().toString());
                 startActivity(intent);
+
             }
         });
 

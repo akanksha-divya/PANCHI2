@@ -4,23 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PhoneNumberActivity">
+    tools:context=".ProfileActivity">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="MissingClass"
+        android:src="@drawable/avatar"/>
+
 
     <TextView
         android:id="@+id/NumLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Verify your phone Number"
+        android:text="Profile Info"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -31,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView"
+        android:text="Set your name and profile image"
         app:layout_constraintEnd_toEndOf="@+id/NumLabel"
         app:layout_constraintStart_toStartOf="@+id/NumLabel"
         app:layout_constraintTop_toBottomOf="@+id/NumLabel" />
@@ -53,22 +57,19 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/phoneNo"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:editable="true"
-                android:hint="Phone Number"
-                android:phoneNumber="false"
+                android:hint="Type your name"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/Continue"
+                android:id="@+id/SetProfileBtn"
                 android:layout_width="match_parent"
                 android:layout_height="81dp"
                 android:layout_marginTop="20dp"
-                android:text="CONTINUE" />
+                android:text="SET PROFILE" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
