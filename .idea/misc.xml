@@ -5,7 +5,10 @@
       <map>
         <entry key="..\:/PANCHI2/app/src/main/res/layout/activity_otpactivity.xml" value="0.12318840579710146" />
         <entry key="..\:/PANCHI2/app/src/main/res/layout/activity_phone_number.xml" value="0.12318840579710146" />
-        <entry key="..\:/PANCHI2/app/src/main/res/layout/activity_profile.xml" value="0.22" />
+        <entry key="..\:/Users/Jaria/AndroidStudioProjects/PANCHI2/app/src/main/res/drawable/custom_button_auth.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Jaria/AndroidStudioProjects/PANCHI2/app/src/main/res/drawable/custom_input.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Jaria/AndroidStudioProjects/PANCHI2/app/src/main/res/layout/activity_otpactivity.xml" value="0.25" />
+        <entry key="..\:/Users/Jaria/AndroidStudioProjects/PANCHI2/app/src/main/res/layout/activity_phone_number.xml" value="0.22916666666666666" />
       </map>
     </option>
   </component>
