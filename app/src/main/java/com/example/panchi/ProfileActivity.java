@@ -112,7 +112,7 @@ public class ProfileActivity extends AppCompatActivity {
                 db.getReference().child("Users").child(uid).setValue(user)
                         .addOnSuccessListener(unused -> {
                             dialog.dismiss();
-                            Intent intent= new Intent(ProfileActivity.this,ChatActivity.class);
+                            Intent intent= new Intent(ProfileActivity.this,MainActivity.class);
                             startActivity(intent);
                             finish();
                         });
