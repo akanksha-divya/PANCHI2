@@ -66,6 +66,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_height="61dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_button_auth"
                 android:text="CONTINUE" />
