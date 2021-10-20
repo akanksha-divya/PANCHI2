@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1040722153217",
+    "firebase_url": "https://panchi-bf16c-default-rtdb.firebaseio.com",
     "project_id": "panchi-bf16c",
     "storage_bucket": "panchi-bf16c.appspot.com"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1040722153217-g66re7bhj44nfvqisdssvml2650e1cm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.panchi",
+            "certificate_hash": "61dd9a90b4129817e90ab31043f28cb2f83de04e"
+          }
+        },
+        {
+          "client_id": "1040722153217-tmh0pgslhu12evhacbb5jc1ippmji61b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.panchi",
+            "certificate_hash": "e69f7e3db700cfa18971c081a26346c1167d609c"
+          }
+        },
         {
           "client_id": "1040722153217-3v4flvsj76npv2jheshl7fkr6mb5vr6f.apps.googleusercontent.com",
           "client_type": 3
