@@ -1,51 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PhoneNumberActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-         />
+        app:srcCompat="@drawable/home_logo"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/NumLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Verify your phone Number"
+        android:layout_marginBottom="15dp"
+        android:text="Verify your Phone Number"
+        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/nameImagelbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/NumLabel"
-        app:layout_constraintStart_toStartOf="@+id/NumLabel"
-        app:layout_constraintTop_toBottomOf="@+id/NumLabel" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameImagelbl" >
+        tools:layout_editor_absoluteY="226dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,19 +51,27 @@
                 android:id="@+id/phoneNo"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="12dp"
                 android:editable="true"
-                android:hint="Phone Number"
+                android:inputType="phone"
+                android:background="@drawable/custom_input"
+                android:hint="+91"
                 android:phoneNumber="false"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/Continue"
                 android:layout_width="match_parent"
-                android:layout_height="81dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_height="61dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/custom_button_auth"
                 android:text="CONTINUE" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
