@@ -40,6 +40,7 @@ public class OTPActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityOtpactivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().hide();
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Sending OTP.....");
