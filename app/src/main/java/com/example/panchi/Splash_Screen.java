@@ -20,20 +20,23 @@ public class Splash_Screen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         getSupportActionBar().hide();
 
-         auth=FirebaseAuth.getInstance();
-        if(auth.getCurrentUser()!=null)
-        {
-            Intent intent = new Intent(Splash_Screen.this,PhoneNumberActivity.class);
-            startActivity(intent);
-            finish();
-        }
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Splash_Screen.this,PhoneNumberActivity.class);
-                startActivity(intent);
-                finish();
+                auth=FirebaseAuth.getInstance();
+                if(auth.getCurrentUser()!=null)
+                {
+                    Intent intent = new Intent(Splash_Screen.this,ProfileActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Intent intent = new Intent(Splash_Screen.this, PhoneNumberActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         },3000);
 

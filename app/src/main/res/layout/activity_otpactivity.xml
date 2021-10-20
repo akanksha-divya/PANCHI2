@@ -49,22 +49,23 @@
 
 
             <com.mukesh.OtpView
-                android:id="@+id/otp_view"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="30dp"
-                android:inputType="number"
 
-                android:itemBackground="@color/purple_500"
+                android:id="@+id/otp_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:inputType="phone"
+                android:itemBackground="@color/gray"
                 android:phoneNumber="false"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:OtpItemCount="6"
-                app:OtpCursorColor="@color/white"
                 app:OtpLineColor="@color/green"
                 app:OtpViewType="line"
-                tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+
+                />
 
 
 
