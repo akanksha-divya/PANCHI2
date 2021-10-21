@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="400dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/home_logo_without"
         android:layout_gravity="center_horizontal"
@@ -48,23 +48,14 @@
             android:orientation="vertical">
 
 
-            <com.mukesh.OtpView
 
-                android:id="@+id/otp_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
                 android:inputType="phone"
-                android:itemBackground="@color/gray"
-                android:phoneNumber="false"
-                android:textColor="@android:color/black"
-                app:OtpItemCount="6"
-                app:OtpLineColor="@color/green"
-                app:OtpViewType="line"
-
-
-
-
+                android:id="@+id/editotp"
+                android:background="@drawable/custom_input"
+                android:hint="  Enter OTP"
                 />
 
 
