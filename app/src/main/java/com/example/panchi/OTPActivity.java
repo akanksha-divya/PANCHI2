@@ -8,11 +8,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.panchi.databinding.ActivityOtpactivityBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,10 +81,14 @@ public class OTPActivity extends AppCompatActivity {
 
 
 
-        binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
-            @Override
-            public void onOtpCompleted(String otp) {
 
+
+        //for continue button
+        binding.ContinueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText ed = (EditText)findViewById(R.id.editotp);
+                String otp = ed.getText().toString();
                 d2.setMessage("Verifying OTP...");
                 d2.setCancelable(false);
                 d2.show();
@@ -101,7 +107,7 @@ public class OTPActivity extends AppCompatActivity {
 
                             Intent intent= new Intent(OTPActivity.this,ProfileActivity.class);
                             startActivity(intent);
-                           // finishAffinity();
+                            // finishAffinity();
                         }
                         else
                         {
@@ -112,17 +118,10 @@ public class OTPActivity extends AppCompatActivity {
                         finishAffinity();
                     }
                 });
-
-            }
-        });
-
-        //for continue button
-        binding.ContinueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Toast.makeText(OTPActivity.this, "Enter Correct OTP",Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.example.panchi.databinding.ActivityPhoneNumberBinding;
@@ -32,8 +33,21 @@ public class PhoneNumberActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PhoneNumberActivity.this,OTPActivity.class);
 
-                intent.putExtra("phoneNumber",binding.phoneNo.getText().toString());
-                startActivity(intent);
+                String no = binding.phoneNo.getText().toString();
+                if(no.length()==10){
+                    no = "+91"+no;
+                    intent.putExtra("phoneNumber",no);
+                    startActivity(intent);
+                }
+                else if(no.length()==13){
+                    no = no;
+                    intent.putExtra("phoneNumber",no);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(PhoneNumberActivity.this, "Please Enter a valid Phone Number", Toast.LENGTH_LONG).show();
+                }
+
             }
 
         });
@@ -41,4 +55,4 @@ public class PhoneNumberActivity extends AppCompatActivity {
 
     }
 
-  }
+}

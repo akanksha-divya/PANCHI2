@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.panchi.databinding.ActivitySplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +22,9 @@ public class Splash_Screen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         getSupportActionBar().hide();
 
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
 
 
         new Handler().postDelayed(new Runnable() {
@@ -28,12 +33,15 @@ public class Splash_Screen extends AppCompatActivity {
                 auth=FirebaseAuth.getInstance();
                 if(auth.getCurrentUser()!=null)
                 {
-                    Intent intent = new Intent(Splash_Screen.this,ProfileActivity.class);
+                    Intent intent = new Intent(Splash_Screen.this,MainActivity.class);
+                    //Intent intent = new Intent(Splash_Screen.this,OTPActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else {
                     Intent intent = new Intent(Splash_Screen.this, PhoneNumberActivity.class);
+
+//                    Intent intent = new Intent(Splash_Screen.this,OTPActivity.class);
                     startActivity(intent);
                     finish();
                 }
