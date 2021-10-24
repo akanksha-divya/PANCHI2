@@ -1,4 +1,4 @@
-package com.example.panchi;
+package com.example.panchi.Models;
 
 public class Users {
 

@@ -1,20 +1,22 @@
-package com.example.panchi;
+package com.example.panchi.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.panchi.R;
+import com.example.panchi.Models.Users;
+import com.example.panchi.Adapters.UsersAdapter;
 import com.example.panchi.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
 import java.util.ArrayList;
 
@@ -34,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         users = new ArrayList<>();
         usersAdapter = new UsersAdapter(this, users);
+
         //binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(usersAdapter);
 
-        database.getReference().child("users").addValueEventListener(new ValueEventListener() {
+        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();

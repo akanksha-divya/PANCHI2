@@ -1,4 +1,4 @@
-package com.example.panchi;
+package com.example.panchi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,6 @@ import android.view.View;
 
 
 import com.example.panchi.databinding.ActivityPhoneNumberBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class PhoneNumberActivity extends AppCompatActivity {
@@ -30,7 +28,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
         binding.Continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PhoneNumberActivity.this,OTPActivity.class);
+                Intent intent = new Intent(PhoneNumberActivity.this, OTPActivity.class);
 
                 intent.putExtra("phoneNumber",binding.phoneNo.getText().toString());
                 startActivity(intent);

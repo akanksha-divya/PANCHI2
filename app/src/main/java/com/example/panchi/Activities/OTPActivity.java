@@ -1,15 +1,16 @@
-package com.example.panchi;
+package com.example.panchi.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.panchi.R;
 import com.example.panchi.databinding.ActivityOtpactivityBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.mukesh.OnOtpCompletionListener;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -79,10 +80,14 @@ public class OTPActivity extends AppCompatActivity {
 
 
 
-        binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
-            @Override
-            public void onOtpCompleted(String otp) {
 
+
+        //for continue button
+        binding.ContinueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText ed = (EditText)findViewById(R.id.editotp);
+                String otp = ed.getText().toString();
                 d2.setMessage("Verifying OTP...");
                 d2.setCancelable(false);
                 d2.show();
@@ -99,9 +104,9 @@ public class OTPActivity extends AppCompatActivity {
 
                             //Toast.makeText(OTPActivity.this, "Logged In",Toast.LENGTH_SHORT).show();
 
-                            Intent intent= new Intent(OTPActivity.this,ProfileActivity.class);
+                            Intent intent= new Intent(OTPActivity.this, ProfileActivity.class);
                             startActivity(intent);
-                           // finishAffinity();
+                            // finishAffinity();
                         }
                         else
                         {
@@ -112,17 +117,10 @@ public class OTPActivity extends AppCompatActivity {
                         finishAffinity();
                     }
                 });
-
-            }
-        });
-
-        //for continue button
-        binding.ContinueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Toast.makeText(OTPActivity.this, "Enter Correct OTP",Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 }

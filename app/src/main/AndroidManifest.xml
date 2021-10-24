@@ -13,10 +13,8 @@
         android:theme="@style/Theme.PANCHI"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Splash_Screen"
+            android:name=".Activities.Splash_Screen"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,26 +23,21 @@
 
         </activity>
         <activity
-            android:name=".ChatActivity"
+            android:name=".Activities.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activities.ProfileActivity"
             android:exported="false">
 
         </activity>
         <activity
-            android:name=".OTPActivity"
+            android:name=".Activities.OTPActivity"
             android:windowSoftInputMode="stateVisible" />
         <activity
-            android:name=".PhoneNumberActivity"
+            android:name=".Activities.PhoneNumberActivity"
             android:windowSoftInputMode="stateVisible">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Activities.MainActivity" />
     </application>
 
 </manifest>
