@@ -3,6 +3,7 @@ package com.example.panchi.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,18 +11,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.panchi.R;
 import com.example.panchi.databinding.ActivityOtpactivityBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
+
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-
+import com.example.panchi.R;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -105,7 +105,7 @@ public class OTPActivity extends AppCompatActivity {
 
                             //Toast.makeText(OTPActivity.this, "Logged In",Toast.LENGTH_SHORT).show();
 
-                            Intent intent= new Intent(OTPActivity.this, ProfileActivity.class);
+                            Intent intent= new Intent(OTPActivity.this,ProfileActivity.class);
                             startActivity(intent);
                             // finishAffinity();
                         }
@@ -125,3 +125,5 @@ public class OTPActivity extends AppCompatActivity {
 
     }
 }
+
+
