@@ -1,13 +1,12 @@
-package com.example.panchi;
+package com.example.panchi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import com.example.panchi.R;
 
-import com.example.panchi.Activities.PhoneNumberActivity;
-import com.example.panchi.databinding.ActivitySplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Splash_Screen extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class Splash_Screen extends AppCompatActivity {
                 auth=FirebaseAuth.getInstance();
                 if(auth.getCurrentUser()!=null)
                 {
-                    Intent intent = new Intent(Splash_Screen.this, com.example.panchi.ProfileActivity.class);
+                    Intent intent = new Intent(Splash_Screen.this, ProfileActivity.class);
                     startActivity(intent);
                     finish();
                 }

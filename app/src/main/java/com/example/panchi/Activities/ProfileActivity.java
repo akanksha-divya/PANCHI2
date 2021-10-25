@@ -1,4 +1,4 @@
-package com.example.panchi;
+package com.example.panchi.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 
+import com.example.panchi.Models.Users;
 import com.example.panchi.databinding.ActivityProfileBinding;
 
 import com.google.android.gms.tasks.OnSuccessListener;
