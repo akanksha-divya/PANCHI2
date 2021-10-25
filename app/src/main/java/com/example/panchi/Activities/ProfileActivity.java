@@ -1,4 +1,4 @@
-package com.example.panchi.Activities;
+package com.example.panchi;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 
 
-import com.example.panchi.Models.Users;
 import com.example.panchi.databinding.ActivityProfileBinding;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -53,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
-            startActivityForResult(intent,45);
+           //startActivityForResult(intent,45);
         });
 
         binding.SetProfileBtn.setOnClickListener(v -> {
@@ -93,7 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 db.getReference().child("Users").child(uid).setValue(user)
                                         .addOnSuccessListener(unused -> {
                                             dialog.dismiss();
-                                            Intent intent= new Intent(ProfileActivity.this, MainActivity.class);
+                                            Intent intent= new Intent(ProfileActivity.this,MainActivity.class);
                                             startActivity(intent);
                                             finish();
                                         });
