@@ -3,7 +3,6 @@ package com.example.panchi.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +12,7 @@ import com.example.panchi.R;
 import com.example.panchi.Models.Users;
 import com.example.panchi.Adapters.UsersAdapter;
 import com.example.panchi.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 users.clear();
                 for(DataSnapshot snapshot1 : snapshot.getChildren()){
                     Users user = snapshot1.getValue(Users.class);
+                    if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
                     users.add(user);
                 }
                 usersAdapter.notifyDataSetChanged();

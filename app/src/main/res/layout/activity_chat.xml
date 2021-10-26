@@ -29,7 +29,7 @@
 
             <EditText
                 android:id="@+id/msgBox"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginLeft="12dp"
@@ -38,10 +38,13 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:hint="Type Message"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:padding="8dp"
+                android:scrollbars="vertical"
                 android:textSize="14sp"
                 tools:ignore="TouchTargetSizeCheck" />
+
+
 
             <ImageView
                 android:id="@+id/attachment"
@@ -49,7 +52,7 @@
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:tint="#4C4B4B"
+
                 app:srcCompat="@drawable/paperclip" />
 
         </LinearLayout>
@@ -78,7 +81,7 @@
         android:background="@drawable/send_button"
         android:cropToPadding="false"
         android:padding="5dp"
-        android:tint="#F4F2F2"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"

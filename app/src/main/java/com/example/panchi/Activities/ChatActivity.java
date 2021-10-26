@@ -19,6 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -51,6 +53,7 @@ public class ChatActivity extends AppCompatActivity {
         receiverRoom=receiverUid+senderUid;
 
         database = FirebaseDatabase.getInstance();
+
 
 
         //To get messages from database and display it on thr screen
@@ -86,10 +89,24 @@ public class ChatActivity extends AppCompatActivity {
                 Message message = new Message(messageTxt,senderUid,date.getTime());
                 binding.msgBox.setText("");
 
+
+
+                //First we have to update last message and then add messages to database
+                String randomKey = database.getReference().push().getKey();
+
+                HashMap<String, Object> lastMsgObj = new HashMap<>();
+                lastMsgObj.put("lstMsg",message.getMessage());
+                lastMsgObj.put("lstMsgTime", date.getTime());
+
+                //updating last message and time in database
+                database.getReference().child("chats").child(senderRoom).updateChildren(lastMsgObj);
+                database.getReference().child("chats").child(receiverRoom).updateChildren(lastMsgObj);
+
+
                 database.getReference().child("chats")
                         .child(senderRoom)
                         .child("messages")
-                        .push()
+                        .child(randomKey)
                         .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(@NonNull Void unused) {
@@ -98,27 +115,33 @@ public class ChatActivity extends AppCompatActivity {
                         database.getReference().child("chats")
                                 .child(receiverRoom)
                                 .child("messages")
-                                .push()
+                                .child(randomKey)
                                 .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(@NonNull Void unused) {
 
                             }
                         });
+                        HashMap<String, Object> lastMsgObj = new HashMap<>();
+                        lastMsgObj.put("lstMsg",message.getMessage());
+                        lastMsgObj.put("lstMsgTime", date.getTime());
+
+                        //updating last message and time in database
+                        database.getReference().child("chats").child(senderRoom).updateChildren(lastMsgObj);
+                        database.getReference().child("chats").child(receiverRoom).updateChildren(lastMsgObj);
+
+
+
 
 
                     }
                 });
-
-
-
-
-                                               }
-                                           });
+            }
+        });
 
 
         //Display name on actionBar(Top)
-        getSupportActionBar().setTitle(name);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(name);
 
 
         //setDisplayHomeAsUpEnabled makes an icon clickable and add  a back button on it

@@ -15,7 +15,11 @@ import com.example.panchi.databinding.ReceiverBinding;
 import com.example.panchi.databinding.SenderBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.sql.Timestamp;
+
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MessageAdapter extends RecyclerView.Adapter{
     Context context;
@@ -59,16 +63,37 @@ public class MessageAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         Message message = messages.get(position);
+        //position is used so that message that arrives first will be sisplayed first
+
+        //Adding time
 
         //Here we dont know which viewHolder does it belong sender or receiver
         if(holder.getClass()==SentViewHolder.class)
         {
             SentViewHolder viewHolder = (SentViewHolder)holder;
             viewHolder.binding.message.setText(message.getMessage());
+
+            long timestamp = message.getTimestamp();
+            Timestamp ts = new Timestamp(timestamp);
+            Date date=new Date(ts.getTime());
+            //= DateFormat.getInstance().format(date)
+            String dateToStr ;
+            dateToStr = DateFormat.getTimeInstance(DateFormat.SHORT).format(date);
+
+            viewHolder.binding.cTime.setText(dateToStr);
         }
         else{
             ReceiverViewHolder viewHolder = (ReceiverViewHolder)holder;
             viewHolder.binding.message.setText(message.getMessage());
+            long timestamp = message.getTimestamp();
+            Timestamp ts = new Timestamp(timestamp);
+            Date date=new Date(ts.getTime());
+            String dateToStr;
+            dateToStr = DateFormat.getTimeInstance(DateFormat.SHORT).format(date);
+
+            viewHolder.binding.cTime.setText(dateToStr);
+
+
         }
 
     }
