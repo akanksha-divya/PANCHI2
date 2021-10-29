@@ -40,7 +40,11 @@ public class ChatActivity extends AppCompatActivity {
 
         messages = new ArrayList<>();
         adapter= new MessageAdapter(this,messages);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+
+        binding.recyclerView.setLayoutManager(linearLayoutManager);
         binding.recyclerView.setAdapter(adapter);
 
 
@@ -82,6 +86,8 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+
                 String messageTxt = binding.msgBox.getText().toString();
                 Date date= new Date();   //get current time
 
@@ -102,6 +108,8 @@ public class ChatActivity extends AppCompatActivity {
                 database.getReference().child("chats").child(senderRoom).updateChildren(lastMsgObj);
                 database.getReference().child("chats").child(receiverRoom).updateChildren(lastMsgObj);
 
+                int position =binding.recyclerView.getAdapter().getItemCount()-1;
+                binding.recyclerView.smoothScrollToPosition(position);
 
                 database.getReference().child("chats")
                         .child(senderRoom)
@@ -112,6 +120,9 @@ public class ChatActivity extends AppCompatActivity {
                     public void onSuccess(@NonNull Void unused) {
                         //when our message has successfully transfered
                         //Do same for receiver
+                        //shift recycler view focus on last element added
+                        int position =binding.recyclerView.getAdapter().getItemCount()-1;
+                        binding.recyclerView.smoothScrollToPosition(position);
                         database.getReference().child("chats")
                                 .child(receiverRoom)
                                 .child("messages")
