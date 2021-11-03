@@ -8,10 +8,11 @@
     android:orientation="vertical"
     tools:context=".Activities.PhoneNumberActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="400dp"
-        android:layout_height="300dp"
+        android:layout_width="260dp"
+        android:layout_height="280dp"
         android:layout_marginTop="25dp"
         android:layout_gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,13 +64,14 @@
             <Button
                 android:id="@+id/Continue"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
                 android:layout_height="55dp"
                 android:textColor="@color/white"
 
                 android:background="@drawable/custom_button_auth"
                 android:text="CONTINUE" />
+
         </LinearLayout>
 
 
