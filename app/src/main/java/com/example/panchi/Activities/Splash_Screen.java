@@ -36,13 +36,13 @@ public class Splash_Screen extends AppCompatActivity {
                 if(auth.getCurrentUser()!=null)
                 {
                     Intent intent = new Intent(Splash_Screen.this, MainActivity.class);
-                    //Intent intent = new Intent(Splash_Screen.this, PhoneNumberActivity.class);
+                    //Intent intent = new Intent(Splash_Screen.this, ProfileActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else {
                     Intent intent = new Intent(Splash_Screen.this, PhoneNumberActivity.class);
-                    //Intent intent = new Intent(Splash_Screen.this, PhoneNumberActivity.class);
+                    //Intent intent = new Intent(Splash_Screen.this, ProfileActivity.class);
                     startActivity(intent);
                     finish();
                 }

@@ -7,17 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".Activities.OTPActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="400dp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/home_logo_without"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:lottie_fileName="otp_otp.json"
+        android:id="@+id/blsl"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+
+        ></com.airbnb.lottie.LottieAnimationView>
 
     <TextView
         android:id="@+id/NumLabel"
@@ -27,10 +27,7 @@
         android:layout_marginTop="15dp"
         android:text="Verify 000000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
+        />
 
 
         <LinearLayout
@@ -58,11 +55,10 @@
 
 
                 android:hint="Validate OTP"
-                app:startIconDrawable="@drawable/ic_phone"
+                app:startIconDrawable="@drawable/ic_baseline_person_24"
 
                 >
 
-                <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editotp"
                     android:layout_width="match_parent"
