@@ -140,6 +140,28 @@ public class MessageAdapter extends RecyclerView.Adapter{
                .into(viewHolder.binding.image);
             }
 
+           else if(message.getMessage().equals("pdf")){
+               viewHolder.binding.image.setVisibility(View.VISIBLE);
+               viewHolder.binding.message.setVisibility(View.GONE);
+               Glide.with(context).load(message.getImageUrl())
+                       .placeholder(R.drawable.pdf_placeholder)
+                       .into(viewHolder.binding.image);
+
+               viewHolder.binding.image.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+
+                       Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(uri2));
+                       // intent.setDataAndType(Uri.parse("https://firebasestorage.googleapis.com/v0/b/panchi-bf16c.appspot.com/o/chats%2F"+uri+"?alt=media&token=91bceaa5-c97b-42fc-b4d1-54bbdf9c524d"),"application/pdf");
+                       intent.setDataAndType(Uri.parse(uri),"application/pdf");
+                       intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                       viewHolder.itemView.getContext().startActivity(intent);
+
+                       //Toast.makeText(context, uri,Toast.LENGTH_SHORT).show();
+                   }
+               });
+           }
+
            else
            {
                viewHolder.binding.message.setText(message.getMessage());
