@@ -118,7 +118,7 @@ public class OTPActivity extends AppCompatActivity {
                         finishAffinity();
                     }
                 });
-                Toast.makeText(OTPActivity.this, "Enter Correct OTP",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(OTPActivity.this, "Enter Correct OTP",Toast.LENGTH_SHORT).show();
             }
         });
 

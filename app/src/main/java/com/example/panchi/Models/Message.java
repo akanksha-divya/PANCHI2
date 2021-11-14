@@ -2,7 +2,7 @@ package com.example.panchi.Models;
 
 public class Message {
 
-   private String messageId,message,senderId;
+   private String messageId,message,senderId, imageUrl;
    private long timestamp;
    //private int feeling;
 
@@ -14,7 +14,6 @@ public class Message {
        this.message=message;
        this.senderId=senderId;
        this.timestamp=timestamp;
-
     }
 
     public String getMessageId() {
@@ -47,5 +46,13 @@ public class Message {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
